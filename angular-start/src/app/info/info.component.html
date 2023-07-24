@@ -1,0 +1,64 @@
+<h3>To Start Angular project</h3>
+<div>
+    <h5>
+        To create a new project : ng new project_name <br>
+        To generate componet name : ng new component-name
+    </h5>
+</div>
+
+<h3>Data Bindings</h3>
+<div>
+    <!-- property binding -->
+    
+    <p>below button diables after 2000 mili seconds</p>
+    <button class="btn btn-primary" 
+        [disabled]="enable"
+        click="onbuttonClick()">
+        Button
+    </button>
+
+    <!-- string interpolation -->
+    <p>string interpolation <br> button is: {{!enable}}</p>
+
+    <!-- event binding-->
+    <!-- click="onbuttonClick()" -->
+    <p>event binding : on clicking button event triggered and message is displayed as : 
+        <br> 
+      {{message}}
+    </p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <!-- pasing data using event binding  -->
+            <p>pasing data using event binding</p>
+            <input type="text" (input)="onInputingText($event)">
+            <p>{{textEntered}}</p>
+
+        </div>
+        <div class="col-sm-4">
+            <!-- two-way binding  -->
+            <p>two-way binding</p>
+            <input type="text" [(ngModel)]="textEntered">
+            <p>{{textEntered}}</p>
+        </div>
+    </div>
+</div>
+
+    <!-- directives -->
+    <p *ngIf="enable">
+        hello
+    </p>
+
+    <p> dynamic bindind</p>
+    <!--  dynamic bindind -->
+    <p *ngFor ="let l of log" let i = "index"
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{'white-text': i>=4}">
+    <!-- [ngClass]="{online: serverStatus === 'online'}" -->
+        Server status is {{getServerStatus()}}</p>
+
+
+        <p> in the above  we used [ngStyle] which is used to add the styling and <br>
+        we used [ngClass] for removing</p>
+
+</div>
